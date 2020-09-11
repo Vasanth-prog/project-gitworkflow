@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ap2pod1-deployment
+  labels:
+    app: ap2pod1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ap2pod1
+  template:
+    metadata:
+      labels:
+        app: ap2pod1
+    spec:
+      containers:
+      - name: ap2pod1
+        image: vasanthprog/web
+        ports:
+        - containerPort: 80
+
